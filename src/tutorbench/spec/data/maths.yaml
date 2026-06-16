@@ -1,0 +1,47 @@
+# GCSE Maths taxonomy — seeds the four M2 SymPy templates.
+# Original objective wording. spec_code convention: M-<TOPIC>-<SUBTOPIC>-<nn>
+subject: maths
+topics:
+  - name: Functions
+    subtopics:
+      - name: Composite functions
+        objectives:
+          - code: M-FUNC-COMP-01
+            description: Evaluate and simplify composite functions fg(x) and gf(x)
+            default_marks: 3
+          - code: M-FUNC-COMP-02
+            description: Evaluate a composite function at a given value
+            default_marks: 2
+
+  - name: Vectors
+    subtopics:
+      - name: 2D vector arithmetic
+        objectives:
+          - code: M-VEC-ARITH-01
+            description: Add, subtract and scalar-multiply 2D column vectors
+            default_marks: 2
+          - code: M-VEC-ARITH-02
+            description: Find the magnitude of a 2D vector
+            default_marks: 2
+          - code: M-VEC-ARITH-03
+            description: Find the midpoint of two position vectors
+            default_marks: 2
+
+  - name: Solving equations
+    subtopics:
+      - name: Iterative methods
+        objectives:
+          - code: M-ITER-FIXP-01
+            description: Apply an iterative formula to a given number of decimal places
+            default_marks: 3
+
+  - name: Quadratics
+    subtopics:
+      - name: Solving quadratics
+        objectives:
+          - code: M-QUAD-SOLVE-01
+            description: Solve a quadratic equation by factorising
+            default_marks: 3
+          - code: M-QUAD-SOLVE-02
+            description: Solve a quadratic by completing the square
+            default_marks: 3

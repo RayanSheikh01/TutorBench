@@ -1,0 +1,55 @@
+# OCR GCSE Computer Science J277 — taxonomy slice (original wording).
+# No past-paper questions or official mark schemes are reproduced here.
+# spec_code mirrors OCR section numbering: CS-J277-<section>-<nn>
+subject: cs
+topics:
+  - name: Systems architecture
+    subtopics:
+      - name: The CPU
+        objectives:
+          - code: CS-J277-1.1-01
+            description: Describe the purpose of the CPU as fetch-decode-execute
+            default_marks: 2
+          - code: CS-J277-1.1-02
+            description: Explain the role of registers (PC, MAR, MDR, ACC) in the CPU
+            default_marks: 4
+      - name: CPU performance
+        objectives:
+          - code: CS-J277-1.1-03
+            description: Explain how clock speed, cores and cache affect performance
+            default_marks: 3
+
+  - name: Memory and storage
+    subtopics:
+      - name: Primary storage
+        objectives:
+          - code: CS-J277-1.2-01
+            description: Distinguish between RAM and ROM and their purposes
+            default_marks: 2
+          - code: CS-J277-1.2-02
+            description: Explain the need for virtual memory
+            default_marks: 3
+
+  - name: Algorithms
+    subtopics:
+      - name: Searching algorithms
+        objectives:
+          - code: CS-J277-2.1-01
+            description: Describe how a binary search locates an item
+            default_marks: 4
+          - code: CS-J277-2.1-02
+            description: Compare linear and binary search efficiency
+            default_marks: 3
+      - name: Sorting algorithms
+        objectives:
+          - code: CS-J277-2.1-03
+            description: Describe the steps of a bubble sort
+            default_marks: 4
+
+  - name: Programming fundamentals
+    subtopics:
+      - name: Data types
+        objectives:
+          - code: CS-J277-2.2-01
+            description: Identify and use the common data types (integer, real, boolean, character, string)
+            default_marks: 2
