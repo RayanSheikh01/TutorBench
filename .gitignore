@@ -11,3 +11,5 @@ dist/
 .env
 *.pdf
 .DS_Store
+IMPLEMENTATION.md
+PLAN.md
