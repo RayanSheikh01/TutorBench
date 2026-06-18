@@ -9,6 +9,7 @@ from tutorbench.models import (
     QType,
     Question,
     Subject,
+    Submission,
 )
 
 STEM = "Convert the denary number 13 to 8-bit binary."
@@ -66,11 +67,14 @@ def test_grade_clamps_awards_and_sums_to_total(fake_llm):
 
     submission = grade(q, "some answer", client=client, model="m")
 
-    assert isinstance(submission, list)
-    assert all(isinstance(a, MarkAward) for a in submission)
-    assert submission[0].awarded_marks == 2
-    assert submission[1].awarded_marks == 2
-    assert submission[2].awarded_marks == 4  # clamped from 10 to point max 4
-    assert submission[3].awarded_marks == 0
-    total = sum(a.awarded_marks for a in submission)
-    assert total == 8  # 2 + 2 + 4 + 0
+    assert isinstance(submission, Submission)
+    assert submission.question_id == q.id
+    assert submission.student_answer == "some answer"
+    awarded = submission.awarded
+    assert all(isinstance(a, MarkAward) for a in awarded)
+    assert awarded[0].awarded_marks == 2
+    assert awarded[1].awarded_marks == 2
+    assert awarded[2].awarded_marks == 4  # clamped from 10 to point max 4
+    assert awarded[3].awarded_marks == 0
+    assert submission.total == 8  # 2 + 2 + 4 + 0
+    # Submission validator enforces total == sum(awarded_marks).

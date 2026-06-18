@@ -13,11 +13,13 @@ import yaml
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
 
+
 from ..config import Settings, get_settings
 from ..llm.client import LLMClient, OllamaClient
 from ..models import Difficulty, QType, Question, Subject
 from ..spec.loader import Objective, SpecDoc, all_codes
 from ..verification.cs import build_cs_question
+from ..grading.judge import grade as grd
 
 app = FastAPI(title="TutorBench")
 
@@ -45,6 +47,27 @@ class GenerateRequest(BaseModel):
     difficulty: Difficulty
     marks: int
     type: QType
+    
+class GradeRequest(BaseModel):
+    question: Question
+    student_answer: str
+
+@app.post("/grade")
+def grade(
+    req: GradeRequest,
+    client: LLMClient = Depends(get_llm_client),
+    settings: Settings = Depends(get_settings),
+):
+    if req.question.subject is not Subject.cs:
+        raise HTTPException(status_code=400, detail="only cs grading is supported")
+    return grd(
+        req.question,
+        req.student_answer,
+        client=client,
+        model=settings.ollama_grade_model,
+    )
+    
+    
 
 
 @app.post("/generate", response_model=Question)
@@ -65,3 +88,4 @@ def generate(
         client=client,
         model=settings.ollama_gen_model,
     )
+

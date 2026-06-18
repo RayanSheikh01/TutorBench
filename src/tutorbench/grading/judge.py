@@ -1,21 +1,22 @@
 
 
 from tutorbench.generation.cs import CSDraft
-from tutorbench.models import MarkAward
+from tutorbench.models import MarkAward, Submission
 
 
-def grade(question, answer, *, client, model):
-    """Grade the answer to the question using the mark scheme; return awarded marks."""
-    messages = [
-        {"role": "system", "content": "You are a helpful and precise assistant for grading student answers."},
-        {"role": "user", "content": f"""Question (marks: {question.marks}):
-{question.stem}
-
-Answer:
-{answer}"""}
-    ]
+def grade(question, answer, *, client, model) -> Submission:
+    """Grade the answer against the mark scheme; return a clamped Submission."""
+    messages = _build_messages(question, answer)
     response = client.structured(model=model, messages=messages, schema=CSDraft)
-    return _clamp_awards(response.mark_scheme, question.mark_scheme)
+    awards = _clamp_awards(response.mark_scheme, question.mark_scheme)
+    total = sum(a.awarded_marks for a in awards)
+    return Submission(
+        question_id=question.id,
+        student_answer=answer,
+        awarded=awards,
+        total=total,
+        feedback=f"Awarded {total}/{question.marks} marks.",
+    )
 
 
 def _build_messages(question, answer) -> list[dict]:
