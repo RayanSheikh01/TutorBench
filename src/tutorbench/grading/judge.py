@@ -1,0 +1,37 @@
+
+
+from tutorbench.generation.cs import CSDraft
+from tutorbench.models import MarkAward
+
+
+def grade(question, answer, *, client, model):
+    """Grade the answer to the question using the mark scheme; return awarded marks."""
+    messages = [
+        {"role": "system", "content": "You are a helpful and precise assistant for grading student answers."},
+        {"role": "user", "content": f"""Question (marks: {question.marks}):
+{question.stem}
+
+Answer:
+{answer}"""}
+    ]
+    response = client.structured(model=model, messages=messages, schema=CSDraft)
+    return _clamp_awards(response.mark_scheme, question.mark_scheme)
+
+
+def _build_messages(question, answer) -> list[dict]:
+    """Build messages for grading a question and answer."""
+    return [
+        {"role": "system", "content": "You are a helpful and precise assistant for grading student answers."},
+        {"role": "user", "content": f"""Question (marks: {question.marks}): {question.stem}
+
+Answer:
+{answer}"""}
+    ]
+    
+def _clamp_awards(raw_awards, mark_scheme) -> list[MarkAward]:
+    """Clamp the raw awarded marks to the mark scheme and return MarkAward list."""
+    awards = []
+    for mp, raw in zip(mark_scheme, raw_awards):
+        awarded = max(0, min(mp.marks, int(raw.marks)))
+        awards.append(MarkAward(point=mp.description, awarded_marks=awarded, justification="justified"))
+    return awards
