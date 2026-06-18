@@ -1,0 +1,147 @@
+[
+  {
+    "question": {
+      "id": "gold-cs-bin2dec",
+      "subject": "cs",
+      "spec_code": "CS-NUM-01",
+      "topic": "Data representation",
+      "subtopic": "Number bases",
+      "difficulty": "easy",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "Convert the 8-bit binary number 01101010 to denary. Show your working.",
+      "model_answer": "106",
+      "working": "Place values 128 64 32 16 8 4 2 1. Set bits: 64 + 32 + 8 + 2 = 106.",
+      "mark_scheme": [
+        {"description": "States the place values for an 8-bit number", "marks": 1},
+        {"description": "Identifies the set bits (64, 32, 8, 2)", "marks": 1},
+        {"description": "Adds the set place values", "marks": 1},
+        {"description": "Correct final answer 106", "marks": 1}
+      ],
+      "verified": true
+    },
+    "mark_scheme": [
+      {"description": "States the place values for an 8-bit number", "marks": 1},
+      {"description": "Identifies the set bits (64, 32, 8, 2)", "marks": 1},
+      {"description": "Adds the set place values", "marks": 1},
+      {"description": "Correct final answer 106", "marks": 1}
+    ],
+    "student_answer": "Place values are 128 64 32 16 8 4 2 1. The 1s are at 64, 32, 8 and 2. 64+32+8+2 = 106.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-bigo-linear",
+      "subject": "cs",
+      "spec_code": "CS-ALG-02",
+      "topic": "Algorithms",
+      "subtopic": "Time complexity",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State the worst-case time complexity of a linear search over n items and justify your answer.",
+      "model_answer": "O(n) because in the worst case every one of the n items is checked.",
+      "working": "Worst case is the target absent or last; the loop inspects all n elements, so cost grows linearly with n.",
+      "mark_scheme": [
+        {"description": "Correctly states O(n)", "marks": 1},
+        {"description": "Justifies with worst case checking all n items", "marks": 1}
+      ],
+      "verified": true
+    },
+    "mark_scheme": [
+      {"description": "Correctly states O(n)", "marks": 1},
+      {"description": "Justifies with worst case checking all n items", "marks": 1}
+    ],
+    "student_answer": "It is O(n).",
+    "human_total": 1,
+    "human_per_point": [1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-stack-queue",
+      "subject": "cs",
+      "spec_code": "CS-DS-03",
+      "topic": "Data structures",
+      "subtopic": "Stacks and queues",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Compare a stack and a queue. Give the order each uses, and one real use of each.",
+      "model_answer": "A stack is LIFO; a queue is FIFO. A stack suits undo history; a queue suits a print spooler.",
+      "working": "Stack: last item pushed is first popped (LIFO). Queue: first item enqueued is first dequeued (FIFO). Uses: stack for call/undo stacks, queue for job/print scheduling.",
+      "mark_scheme": [
+        {"description": "States a stack is LIFO", "marks": 1},
+        {"description": "States a queue is FIFO", "marks": 1},
+        {"description": "Gives a valid use of a stack", "marks": 1},
+        {"description": "Gives a valid use of a queue", "marks": 1}
+      ],
+      "verified": true
+    },
+    "mark_scheme": [
+      {"description": "States a stack is LIFO", "marks": 1},
+      {"description": "States a queue is FIFO", "marks": 1},
+      {"description": "Gives a valid use of a stack", "marks": 1},
+      {"description": "Gives a valid use of a queue", "marks": 1}
+    ],
+    "student_answer": "A stack is LIFO and a queue is FIFO. A stack can be used for an undo feature in an editor.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-primary-key",
+      "subject": "cs",
+      "spec_code": "CS-DB-04",
+      "topic": "Databases",
+      "subtopic": "Relational keys",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Define what a primary key is in a relational database table.",
+      "model_answer": "An attribute (or set of attributes) that uniquely identifies each record in a table.",
+      "working": "A primary key must be unique per row and cannot be null, so it identifies exactly one record.",
+      "mark_scheme": [
+        {"description": "Identifies it as an attribute/field of the table", "marks": 1},
+        {"description": "States it uniquely identifies each record/row", "marks": 1}
+      ],
+      "verified": true
+    },
+    "mark_scheme": [
+      {"description": "Identifies it as an attribute/field of the table", "marks": 1},
+      {"description": "States it uniquely identifies each record/row", "marks": 1}
+    ],
+    "student_answer": "It is the most important column in the table where you usually start.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-compiler",
+      "subject": "cs",
+      "spec_code": "CS-TRN-05",
+      "topic": "Translators",
+      "subtopic": "Compilers",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe the purpose of a compiler and give one advantage of compiled code over interpreted code.",
+      "model_answer": "A compiler translates whole source code into machine code before execution; compiled code runs faster as it is not translated each run.",
+      "working": "Compiler: source -> object/machine code in one pass ahead of run time. Advantage: faster execution and no translator needed at run time.",
+      "mark_scheme": [
+        {"description": "States a compiler translates source code to machine code", "marks": 1},
+        {"description": "States it translates the whole program before execution", "marks": 1},
+        {"description": "Gives a valid advantage (e.g. faster execution)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "mark_scheme": [
+      {"description": "States a compiler translates source code to machine code", "marks": 1},
+      {"description": "States it translates the whole program before execution", "marks": 1},
+      {"description": "Gives a valid advantage (e.g. faster execution)", "marks": 1}
+    ],
+    "student_answer": "A compiler turns the source code into machine code all at once before it runs, and the compiled program then runs faster because it does not need translating again.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  }
+]
