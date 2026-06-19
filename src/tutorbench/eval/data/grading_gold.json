@@ -20,12 +20,6 @@
       ],
       "verified": true
     },
-    "mark_scheme": [
-      {"description": "States the place values for an 8-bit number", "marks": 1},
-      {"description": "Identifies the set bits (64, 32, 8, 2)", "marks": 1},
-      {"description": "Adds the set place values", "marks": 1},
-      {"description": "Correct final answer 106", "marks": 1}
-    ],
     "student_answer": "Place values are 128 64 32 16 8 4 2 1. The 1s are at 64, 32, 8 and 2. 64+32+8+2 = 106.",
     "human_total": 4,
     "human_per_point": [1, 1, 1, 1]
@@ -49,10 +43,6 @@
       ],
       "verified": true
     },
-    "mark_scheme": [
-      {"description": "Correctly states O(n)", "marks": 1},
-      {"description": "Justifies with worst case checking all n items", "marks": 1}
-    ],
     "student_answer": "It is O(n).",
     "human_total": 1,
     "human_per_point": [1, 0]
@@ -78,12 +68,6 @@
       ],
       "verified": true
     },
-    "mark_scheme": [
-      {"description": "States a stack is LIFO", "marks": 1},
-      {"description": "States a queue is FIFO", "marks": 1},
-      {"description": "Gives a valid use of a stack", "marks": 1},
-      {"description": "Gives a valid use of a queue", "marks": 1}
-    ],
     "student_answer": "A stack is LIFO and a queue is FIFO. A stack can be used for an undo feature in an editor.",
     "human_total": 3,
     "human_per_point": [1, 1, 1, 0]
@@ -107,10 +91,6 @@
       ],
       "verified": true
     },
-    "mark_scheme": [
-      {"description": "Identifies it as an attribute/field of the table", "marks": 1},
-      {"description": "States it uniquely identifies each record/row", "marks": 1}
-    ],
     "student_answer": "It is the most important column in the table where you usually start.",
     "human_total": 0,
     "human_per_point": [0, 0]
@@ -135,13 +115,1319 @@
       ],
       "verified": true
     },
-    "mark_scheme": [
-      {"description": "States a compiler translates source code to machine code", "marks": 1},
-      {"description": "States it translates the whole program before execution", "marks": 1},
-      {"description": "Gives a valid advantage (e.g. faster execution)", "marks": 1}
-    ],
     "student_answer": "A compiler turns the source code into machine code all at once before it runs, and the compiled program then runs faster because it does not need translating again.",
     "human_total": 3,
     "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-dec2bin",
+      "subject": "cs",
+      "spec_code": "CS-NUM-01",
+      "topic": "Data representation",
+      "subtopic": "Number bases",
+      "difficulty": "easy",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "Convert the denary number 50 to an 8-bit binary number. Show your working.",
+      "model_answer": "00110010",
+      "working": "50 = 32 + 16 + 2. Set bits at 32, 16 and 2 -> 0011 0010.",
+      "mark_scheme": [
+        {"description": "States the 8-bit place values", "marks": 1},
+        {"description": "Identifies 32 + 16 + 2 = 50", "marks": 1},
+        {"description": "Sets the correct bits", "marks": 1},
+        {"description": "Correct final answer 00110010", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "128 64 32 16 8 4 2 1. 50 = 32 + 16 + 2 so the bits are 00110010.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-hex2dec",
+      "subject": "cs",
+      "spec_code": "CS-NUM-02",
+      "topic": "Data representation",
+      "subtopic": "Hexadecimal",
+      "difficulty": "easy",
+      "marks": 3,
+      "type": "calculation",
+      "stem": "Convert the hexadecimal number 2F to denary. Show your working.",
+      "model_answer": "47",
+      "working": "2 x 16 = 32, F = 15. 32 + 15 = 47.",
+      "mark_scheme": [
+        {"description": "Converts each hex digit to its value (2 and 15)", "marks": 1},
+        {"description": "Multiplies the leading digit by 16", "marks": 1},
+        {"description": "Correct final answer 47", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "47",
+    "human_total": 1,
+    "human_per_point": [0, 0, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-dec2hex",
+      "subject": "cs",
+      "spec_code": "CS-NUM-02",
+      "topic": "Data representation",
+      "subtopic": "Hexadecimal",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "calculation",
+      "stem": "Convert the denary number 200 to hexadecimal. Show your working.",
+      "model_answer": "C8",
+      "working": "200 / 16 = 12 remainder 8. 12 = C, remainder 8 -> C8.",
+      "mark_scheme": [
+        {"description": "Divides 200 by 16 to get 12 remainder 8", "marks": 1},
+        {"description": "Converts 12 to the hex digit C", "marks": 1},
+        {"description": "Correct final answer C8", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "200 / 16 = 12 remainder 8. 12 is C, so the answer is C8.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-bin-add",
+      "subject": "cs",
+      "spec_code": "CS-NUM-03",
+      "topic": "Data representation",
+      "subtopic": "Binary arithmetic",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "Add the 8-bit binary numbers 00101101 and 00010110. Show your working.",
+      "model_answer": "01000011",
+      "working": "45 + 22 = 67 = 01000011. Column addition with carries gives the same.",
+      "mark_scheme": [
+        {"description": "Aligns the two numbers by place value", "marks": 1},
+        {"description": "Adds columns correctly", "marks": 1},
+        {"description": "Handles the carries correctly", "marks": 1},
+        {"description": "Correct final answer 01000011", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "I lined them up and added each column but lost track of one of the carries, getting 00111011.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-twos-complement",
+      "subject": "cs",
+      "spec_code": "CS-NUM-04",
+      "topic": "Data representation",
+      "subtopic": "Two's complement",
+      "difficulty": "hard",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "Represent -25 as an 8-bit two's complement binary number. Show your working.",
+      "model_answer": "11100111",
+      "working": "25 = 00011001. Invert -> 11100110. Add 1 -> 11100111.",
+      "mark_scheme": [
+        {"description": "Writes +25 in binary (00011001)", "marks": 1},
+        {"description": "Inverts all the bits", "marks": 1},
+        {"description": "Adds 1 to the inverted value", "marks": 1},
+        {"description": "Correct final answer 11100111", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "25 is 00011001. Flip the bits to get 11100110 then add one to get 11100111.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-overflow",
+      "subject": "cs",
+      "spec_code": "CS-NUM-05",
+      "topic": "Data representation",
+      "subtopic": "Overflow",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain what is meant by an overflow error in binary addition.",
+      "model_answer": "When the result of an addition needs more bits than are available, so the carry out of the most significant bit is lost and the stored result is wrong.",
+      "working": "Fixed bit width cannot hold the true result; the extra high-order bit is discarded.",
+      "mark_scheme": [
+        {"description": "States the result is too large for the available bits", "marks": 1},
+        {"description": "States this gives an incorrect/lost result", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It happens when the answer to a sum is too big to fit in the number of bits, so a bit is lost and the answer stored is wrong.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-left-shift",
+      "subject": "cs",
+      "spec_code": "CS-NUM-06",
+      "topic": "Data representation",
+      "subtopic": "Binary shifts",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "calculation",
+      "stem": "Perform a logical left shift of two places on 00001011 and state the effect on the denary value.",
+      "model_answer": "00101100, which multiplies the value by 4.",
+      "working": "Shift left 2 -> 00101100. Each left shift multiplies by 2, so two shifts multiply by 4.",
+      "mark_scheme": [
+        {"description": "Performs a left shift (not a right shift)", "marks": 1},
+        {"description": "Correct shifted result 00101100", "marks": 1},
+        {"description": "States the value is multiplied by 4", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Shifting two places gives 00000010, and a shift like this multiplies the number by 4.",
+    "human_total": 1,
+    "human_per_point": [0, 0, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-ascii",
+      "subject": "cs",
+      "spec_code": "CS-CHR-01",
+      "topic": "Data representation",
+      "subtopic": "Character sets",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "ASCII uses 7 bits per character. Explain how this limits the characters that can be represented.",
+      "model_answer": "7 bits give 2^7 = 128 different patterns, so only 128 distinct characters can be encoded.",
+      "working": "Number of patterns = 2^bits = 2^7 = 128 characters maximum.",
+      "mark_scheme": [
+        {"description": "States 2^7 = 128 patterns", "marks": 1},
+        {"description": "Links this to a maximum of 128 characters", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "With 7 bits you get 2^7 = 128 combinations, so ASCII can only represent 128 different characters.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-unicode",
+      "subject": "cs",
+      "spec_code": "CS-CHR-02",
+      "topic": "Data representation",
+      "subtopic": "Character sets",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Give one advantage of Unicode over ASCII and explain why.",
+      "model_answer": "Unicode can represent far more characters because it uses more bits, so it supports many languages and symbols (e.g. emoji).",
+      "working": "More bits -> more patterns -> larger character set covering global scripts.",
+      "mark_scheme": [
+        {"description": "States Unicode represents more characters", "marks": 1},
+        {"description": "Explains it supports more languages/symbols", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Unicode can store many more characters than ASCII and so it can represent different alphabets and symbols from many languages.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-image-size",
+      "subject": "cs",
+      "spec_code": "CS-IMG-01",
+      "topic": "Data representation",
+      "subtopic": "Images",
+      "difficulty": "hard",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "An image is 100 by 200 pixels with a colour depth of 4 bits per pixel. Calculate the file size in bytes. Show your working.",
+      "model_answer": "10000 bytes",
+      "working": "Pixels = 100 x 200 = 20000. Bits = 20000 x 4 = 80000. Bytes = 80000 / 8 = 10000.",
+      "mark_scheme": [
+        {"description": "Calculates total pixels = 20000", "marks": 1},
+        {"description": "Multiplies by colour depth = 80000 bits", "marks": 1},
+        {"description": "Divides bits by 8 to convert to bytes", "marks": 1},
+        {"description": "Correct final answer 10000 bytes", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "100 x 200 = 20000 pixels. 20000 x 4 = 80000, so the file size is 80000 bytes.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-sound-sample",
+      "subject": "cs",
+      "spec_code": "CS-SND-01",
+      "topic": "Data representation",
+      "subtopic": "Sound",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "State three factors that affect the file size of a digital sound recording.",
+      "model_answer": "Sample rate, bit depth (sample resolution) and the duration of the recording.",
+      "working": "Larger sample rate, higher bit depth and longer duration all increase the number of stored bits.",
+      "mark_scheme": [
+        {"description": "Sample rate", "marks": 1},
+        {"description": "Bit depth / sample resolution", "marks": 1},
+        {"description": "Duration / length of recording", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "The sample rate and the bit depth both affect the size of the file.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-lossy-mcq",
+      "subject": "cs",
+      "spec_code": "CS-CMP-01",
+      "topic": "Data representation",
+      "subtopic": "Compression",
+      "difficulty": "easy",
+      "marks": 1,
+      "type": "multiple_choice",
+      "stem": "Which of these file formats uses lossy compression? A) PNG B) JPEG C) BMP D) TXT",
+      "model_answer": "B) JPEG",
+      "working": "JPEG discards image detail to reduce size, which is lossy compression.",
+      "mark_scheme": [
+        {"description": "Selects B) JPEG", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "B",
+    "human_total": 1,
+    "human_per_point": [1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-rle",
+      "subject": "cs",
+      "spec_code": "CS-CMP-02",
+      "topic": "Data representation",
+      "subtopic": "Compression",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain how run length encoding (RLE) reduces the size of a file.",
+      "model_answer": "It replaces runs of repeated values with a single value and a count of how many times it repeats, storing fewer items.",
+      "working": "e.g. AAAA -> 4A: one count + one value instead of four characters.",
+      "mark_scheme": [
+        {"description": "States repeated values are replaced by a value and a count", "marks": 1},
+        {"description": "Explains this stores fewer items / less data", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It looks for characters that repeat and stores them in a shorter way.",
+    "human_total": 1,
+    "human_per_point": [1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-linear-search",
+      "subject": "cs",
+      "spec_code": "CS-ALG-03",
+      "topic": "Algorithms",
+      "subtopic": "Searching",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe how a linear search finds a target value in a list.",
+      "model_answer": "Start at the first item and compare each item in turn with the target until a match is found or the end of the list is reached.",
+      "working": "Sequential check of every element from start to end; stop on match or exhaustion.",
+      "mark_scheme": [
+        {"description": "Starts at the first item", "marks": 1},
+        {"description": "Compares each item in turn with the target", "marks": 1},
+        {"description": "Stops when found or end of list reached", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "You start at the first element and check each one in order against the value you want, stopping when you find it or you run out of items.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-binary-search",
+      "subject": "cs",
+      "spec_code": "CS-ALG-04",
+      "topic": "Algorithms",
+      "subtopic": "Searching",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Describe how a binary search works and state one requirement of the list it searches.",
+      "model_answer": "Check the middle item; if it is the target stop, otherwise discard the half that cannot contain it and repeat on the remaining half. The list must be sorted.",
+      "working": "Halving the search space each step; precondition is an ordered list.",
+      "mark_scheme": [
+        {"description": "Checks the middle item", "marks": 1},
+        {"description": "Discards the half that cannot contain the target", "marks": 1},
+        {"description": "Repeats on the remaining half", "marks": 1},
+        {"description": "States the list must be sorted/ordered", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "You look at the middle item, then throw away the half it can't be in and repeat the process on what's left until you find it.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-bubble-sort",
+      "subject": "cs",
+      "spec_code": "CS-ALG-05",
+      "topic": "Algorithms",
+      "subtopic": "Sorting",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Describe how a bubble sort orders a list of numbers into ascending order.",
+      "model_answer": "Compare adjacent pairs and swap them if they are in the wrong order; repeat passes through the list until a pass makes no swaps.",
+      "working": "Largest values 'bubble' to the end each pass; terminate when a full pass has no swaps.",
+      "mark_scheme": [
+        {"description": "Compares adjacent items", "marks": 1},
+        {"description": "Swaps them if in the wrong order", "marks": 1},
+        {"description": "Repeats in passes through the list", "marks": 1},
+        {"description": "Stops when a pass makes no swaps", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It compares two items next to each other and swaps them if they are the wrong way round, then keeps going through the list doing more passes.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-merge-sort",
+      "subject": "cs",
+      "spec_code": "CS-ALG-06",
+      "topic": "Algorithms",
+      "subtopic": "Sorting",
+      "difficulty": "hard",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Describe how a merge sort orders a list of numbers.",
+      "model_answer": "Repeatedly split the list into halves until each sublist has one item, then merge sublists back together in order to produce a single sorted list.",
+      "working": "Divide-and-conquer: split to singletons, then merge pairs in order.",
+      "mark_scheme": [
+        {"description": "Splits the list into smaller sublists", "marks": 1},
+        {"description": "Continues splitting until sublists have one item", "marks": 1},
+        {"description": "Merges sublists back together", "marks": 1},
+        {"description": "Merging keeps items in order", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A merge sort goes through the list comparing each item to the one next to it and swapping any that are out of order until the whole list is sorted.",
+    "human_total": 0,
+    "human_per_point": [0, 0, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-bigo-binary",
+      "subject": "cs",
+      "spec_code": "CS-ALG-07",
+      "topic": "Algorithms",
+      "subtopic": "Time complexity",
+      "difficulty": "hard",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State the worst-case time complexity of a binary search and justify it.",
+      "model_answer": "O(log n) because each comparison halves the number of items still to be searched.",
+      "working": "Halving the search space gives log2(n) comparisons in the worst case.",
+      "mark_scheme": [
+        {"description": "States O(log n)", "marks": 1},
+        {"description": "Justifies with halving the search space each step", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It is O(log n) because every step halves how many items are left to look through.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-array-define",
+      "subject": "cs",
+      "spec_code": "CS-DS-01",
+      "topic": "Data structures",
+      "subtopic": "Arrays",
+      "difficulty": "easy",
+      "marks": 1,
+      "type": "short_answer",
+      "stem": "State what is meant by an array.",
+      "model_answer": "An ordered collection of items of the same data type, accessed by an index.",
+      "working": "Fixed-size, same-type, index-addressed collection.",
+      "mark_scheme": [
+        {"description": "Collection of items of the same data type", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A data structure that stores several values of the same type together, each found by its index.",
+    "human_total": 1,
+    "human_per_point": [1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-2d-array",
+      "subject": "cs",
+      "spec_code": "CS-DS-02",
+      "topic": "Data structures",
+      "subtopic": "Arrays",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "calculation",
+      "stem": "A 2D array grid is indexed [row][column] starting at 0. The first row is [4, 9, 2, 7]. State the value of grid[0][2] and explain why.",
+      "model_answer": "2, because column index 2 is the third item in row 0.",
+      "working": "Row 0 = [4,9,2,7]; index 2 (zero-based) is the value 2.",
+      "mark_scheme": [
+        {"description": "Correct value 2", "marks": 1},
+        {"description": "Explains zero-based indexing selects the third item", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "grid[0][2] is 9.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-stack-trace",
+      "subject": "cs",
+      "spec_code": "CS-DS-04",
+      "topic": "Data structures",
+      "subtopic": "Stacks",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "A stack is empty. The operations push(A), push(B), pop(), push(C) are carried out. State the item returned by pop() and the final contents of the stack from bottom to top.",
+      "model_answer": "pop() returns B; final stack is A, C (bottom to top).",
+      "working": "Push A,B -> [A,B]. Pop removes top B. Push C -> [A,C].",
+      "mark_scheme": [
+        {"description": "pop() returns B", "marks": 1},
+        {"description": "Recognises B was the top (LIFO)", "marks": 1},
+        {"description": "Final stack contains A and C", "marks": 1},
+        {"description": "Correct order A (bottom) then C (top)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "pop() returns B because it was on the top. The stack then has A at the bottom and C on the top.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-queue-trace",
+      "subject": "cs",
+      "spec_code": "CS-DS-05",
+      "topic": "Data structures",
+      "subtopic": "Queues",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "A queue is empty. The operations enqueue(X), enqueue(Y), dequeue(), enqueue(Z) are carried out. State the item returned by dequeue() and the final contents of the queue from front to back.",
+      "model_answer": "dequeue() returns X; final queue is Y, Z (front to back).",
+      "working": "Enqueue X,Y -> [X,Y]. Dequeue removes front X. Enqueue Z -> [Y,Z].",
+      "mark_scheme": [
+        {"description": "dequeue() returns X", "marks": 1},
+        {"description": "Recognises X was at the front (FIFO)", "marks": 1},
+        {"description": "Final queue is Y then Z front to back", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "dequeue() gives back X. After that the queue holds Y and Z.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-record",
+      "subject": "cs",
+      "spec_code": "CS-DB-01",
+      "topic": "Databases",
+      "subtopic": "Tables",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "In a database table, define the terms 'record' and 'field'.",
+      "model_answer": "A record is one complete row of related data; a field is a single column/attribute within a record.",
+      "working": "Row = record; column = field.",
+      "mark_scheme": [
+        {"description": "Record is a row / one entity's data", "marks": 1},
+        {"description": "Field is a column / single attribute", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A record is one row holding all the data about one thing, and a field is a single column such as one attribute.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-sql-select",
+      "subject": "cs",
+      "spec_code": "CS-DB-05",
+      "topic": "Databases",
+      "subtopic": "SQL",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "A table Students has fields Name and Year. Write an SQL statement that returns the Name of every student.",
+      "model_answer": "SELECT Name FROM Students;",
+      "working": "SELECT the Name column FROM the Students table.",
+      "mark_scheme": [
+        {"description": "Uses SELECT with the Name field", "marks": 1},
+        {"description": "Uses FROM Students", "marks": 1},
+        {"description": "Syntactically valid statement", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "SELECT Name FROM Students;",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-sql-where",
+      "subject": "cs",
+      "spec_code": "CS-DB-06",
+      "topic": "Databases",
+      "subtopic": "SQL",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "A table Students has fields Name and Year. Write an SQL statement that returns the Name of every student in Year 11.",
+      "model_answer": "SELECT Name FROM Students WHERE Year = 11;",
+      "working": "Add a WHERE clause filtering Year = 11.",
+      "mark_scheme": [
+        {"description": "Selects Name from Students", "marks": 1},
+        {"description": "Includes a WHERE clause on Year", "marks": 1},
+        {"description": "Correct condition Year = 11 with valid syntax", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "SELECT Name FROM Students WHERE Year = 11 and nothing else needed",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-foreign-key",
+      "subject": "cs",
+      "spec_code": "CS-DB-07",
+      "topic": "Databases",
+      "subtopic": "Relational keys",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain what a foreign key is and what it is used for.",
+      "model_answer": "A foreign key is a field in one table that refers to the primary key of another table, used to link the two tables.",
+      "working": "FK = PK of another table held as a field; creates a relationship.",
+      "mark_scheme": [
+        {"description": "A field referring to the primary key of another table", "marks": 1},
+        {"description": "Used to link/relate two tables", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It is a key that is used in a table.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-flat-vs-relational",
+      "subject": "cs",
+      "spec_code": "CS-DB-08",
+      "topic": "Databases",
+      "subtopic": "Database types",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Give two advantages of a relational database over a single flat-file database, and explain each.",
+      "model_answer": "Less data redundancy because data is stored once and linked; and easier to maintain consistency because an update is made in one place.",
+      "working": "Normalised tables remove duplication and update anomalies.",
+      "mark_scheme": [
+        {"description": "States reduced data redundancy/duplication", "marks": 1},
+        {"description": "Explains why (data stored once and linked)", "marks": 1},
+        {"description": "States improved consistency/integrity", "marks": 1},
+        {"description": "Explains why (update in one place)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A relational database has less duplicated data because each piece of data is only stored once, and it is generally better and faster than a flat file.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-lan-wan",
+      "subject": "cs",
+      "spec_code": "CS-NET-01",
+      "topic": "Networks",
+      "subtopic": "Network types",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State one difference between a LAN and a WAN.",
+      "model_answer": "A LAN covers a small geographic area such as one site; a WAN covers a large geographic area, often using third-party infrastructure.",
+      "working": "Scale/geography is the key distinction.",
+      "mark_scheme": [
+        {"description": "LAN covers a small/local area", "marks": 1},
+        {"description": "WAN covers a large/wide geographic area", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A LAN is over a small area like one building, but a WAN covers a much larger area like between cities or countries.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-star-topology",
+      "subject": "cs",
+      "spec_code": "CS-NET-02",
+      "topic": "Networks",
+      "subtopic": "Topologies",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Describe a star network topology and give one advantage of using it.",
+      "model_answer": "Each device connects to a central switch/hub; data passes through the central device. Advantage: a single cable fault only affects one device.",
+      "working": "Central node + point-to-point links; fault isolation per link.",
+      "mark_scheme": [
+        {"description": "Devices connect to a central switch/hub", "marks": 1},
+        {"description": "Each device has its own connection to the centre", "marks": 1},
+        {"description": "States a valid advantage", "marks": 1},
+        {"description": "Explains the advantage", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "In a star topology every computer is connected to a central switch by its own cable. An advantage is that if one cable breaks, only that one device loses its connection while the rest keep working.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-mesh-topology",
+      "subject": "cs",
+      "spec_code": "CS-NET-03",
+      "topic": "Networks",
+      "subtopic": "Topologies",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe a mesh network topology and give one benefit of it.",
+      "model_answer": "Devices are connected to many other devices so there are multiple paths for data. Benefit: if one link fails, data can take another route, so it is resilient.",
+      "working": "Many redundant links provide alternative routes.",
+      "mark_scheme": [
+        {"description": "Devices connect to multiple other devices", "marks": 1},
+        {"description": "States there are multiple paths for data", "marks": 1},
+        {"description": "Gives a valid benefit (e.g. resilience)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "In a mesh network the devices are connected to lots of other devices, so there are many connections between them.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-tcpip-layers",
+      "subject": "cs",
+      "spec_code": "CS-NET-04",
+      "topic": "Networks",
+      "subtopic": "Protocols",
+      "difficulty": "hard",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Explain why network protocols are organised into layers, giving two reasons.",
+      "model_answer": "Layering breaks the task into self-contained parts so each layer can be developed and maintained independently, and layers can be changed without affecting the others as long as the interfaces stay the same.",
+      "working": "Separation of concerns + interchangeability of layers.",
+      "mark_scheme": [
+        {"description": "Each layer handles a self-contained part of the task", "marks": 1},
+        {"description": "Explains this simplifies development/maintenance", "marks": 1},
+        {"description": "Layers can be changed independently", "marks": 1},
+        {"description": "Explains interfaces between layers stay the same", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Protocols are layered because it makes the network run much faster and means more data can be sent at the same time, which improves the speed of the whole internet.",
+    "human_total": 0,
+    "human_per_point": [0, 0, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-packet-switching",
+      "subject": "cs",
+      "spec_code": "CS-NET-05",
+      "topic": "Networks",
+      "subtopic": "Packet switching",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe how packet switching transfers data across a network.",
+      "model_answer": "Data is split into packets; each packet is routed independently across the network and may take a different route; packets are reassembled in order at the destination.",
+      "working": "Split -> independent routing -> reassembly.",
+      "mark_scheme": [
+        {"description": "Data is split into packets", "marks": 1},
+        {"description": "Packets are routed independently (possibly different routes)", "marks": 1},
+        {"description": "Packets are reassembled at the destination", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "The data is broken up into packets. Each packet is sent across the network and can go a different way, then they are put back together in the right order when they arrive.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-ip-vs-mac",
+      "subject": "cs",
+      "spec_code": "CS-NET-06",
+      "topic": "Networks",
+      "subtopic": "Addressing",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Compare an IP address and a MAC address, covering how each is assigned and whether it changes.",
+      "model_answer": "An IP address is assigned by the network and can change as a device moves between networks; a MAC address is set by the manufacturer and is fixed/unique to the hardware.",
+      "working": "IP = logical, network-assigned, changeable; MAC = physical, fixed.",
+      "mark_scheme": [
+        {"description": "IP address is assigned by the network/software", "marks": 1},
+        {"description": "IP address can change between networks", "marks": 1},
+        {"description": "MAC address is set by the manufacturer", "marks": 1},
+        {"description": "MAC address is fixed/permanent", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "An IP address is given to a device by the network and can change if it joins a different network. A MAC address is built into the device's hardware.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-http-mcq",
+      "subject": "cs",
+      "spec_code": "CS-NET-07",
+      "topic": "Networks",
+      "subtopic": "Protocols",
+      "difficulty": "easy",
+      "marks": 1,
+      "type": "multiple_choice",
+      "stem": "Which protocol is used to request and transfer web pages? A) SMTP B) FTP C) HTTP D) IMAP",
+      "model_answer": "C) HTTP",
+      "working": "HTTP transfers web pages between server and browser.",
+      "mark_scheme": [
+        {"description": "Selects C) HTTP", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "C",
+    "human_total": 1,
+    "human_per_point": [1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-dns",
+      "subject": "cs",
+      "spec_code": "CS-NET-08",
+      "topic": "Networks",
+      "subtopic": "Protocols",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain the purpose of the Domain Name System (DNS).",
+      "model_answer": "DNS translates a human-readable domain name into the IP address of the server, so the request can be routed to the right machine.",
+      "working": "Name -> IP lookup.",
+      "mark_scheme": [
+        {"description": "Translates domain names to IP addresses", "marks": 1},
+        {"description": "So the correct server can be located/contacted", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "It is a system that helps you connect to websites on the internet.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-cpu-components",
+      "subject": "cs",
+      "spec_code": "CS-ARC-01",
+      "topic": "System architecture",
+      "subtopic": "CPU",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Name three components found inside a CPU.",
+      "model_answer": "The arithmetic logic unit (ALU), the control unit (CU) and registers (e.g. the accumulator).",
+      "working": "Core CPU parts: ALU, CU, registers.",
+      "mark_scheme": [
+        {"description": "Arithmetic logic unit (ALU)", "marks": 1},
+        {"description": "Control unit (CU)", "marks": 1},
+        {"description": "Registers / cache", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "The ALU, the control unit and the registers.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-fde-cycle",
+      "subject": "cs",
+      "spec_code": "CS-ARC-02",
+      "topic": "System architecture",
+      "subtopic": "Fetch-decode-execute",
+      "difficulty": "hard",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe the three stages of the fetch-decode-execute cycle.",
+      "model_answer": "Fetch: the next instruction is copied from memory into the CPU. Decode: the control unit interprets the instruction. Execute: the instruction is carried out (e.g. by the ALU).",
+      "working": "Three named stages with what happens in each.",
+      "mark_scheme": [
+        {"description": "Fetch: instruction copied from memory", "marks": 1},
+        {"description": "Decode: instruction interpreted by the control unit", "marks": 1},
+        {"description": "Execute: instruction is carried out", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "First the instruction is fetched from memory, then it is decoded by the CPU, and after that it is run.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-von-neumann",
+      "subject": "cs",
+      "spec_code": "CS-ARC-03",
+      "topic": "System architecture",
+      "subtopic": "Von Neumann",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State one key feature of the Von Neumann architecture and why it matters.",
+      "model_answer": "Programs and data are stored together in the same memory, which lets a stored program be changed without rewiring the machine.",
+      "working": "Stored-program concept; shared memory for instructions and data.",
+      "mark_scheme": [
+        {"description": "Programs and data share the same memory", "marks": 1},
+        {"description": "Explains a benefit (e.g. stored programs are flexible)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Instructions and data are both held in the same memory, which means the program stored can be changed easily rather than rebuilding the hardware.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-cache",
+      "subject": "cs",
+      "spec_code": "CS-ARC-04",
+      "topic": "System architecture",
+      "subtopic": "Cache",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Explain the purpose of cache memory and the effect of increasing the amount of cache.",
+      "model_answer": "Cache stores frequently used instructions and data close to the CPU so they are accessed faster than from RAM; more cache means more data is available quickly, improving performance.",
+      "working": "Fast nearby store reduces fetches from slower RAM.",
+      "mark_scheme": [
+        {"description": "Stores frequently used data/instructions", "marks": 1},
+        {"description": "Faster to access than RAM (close to CPU)", "marks": 1},
+        {"description": "More cache improves performance", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Cache holds data that is used a lot so the CPU can get to it quickly instead of fetching it from RAM each time.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-clock-speed",
+      "subject": "cs",
+      "spec_code": "CS-ARC-05",
+      "topic": "System architecture",
+      "subtopic": "CPU performance",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain how clock speed affects the performance of a CPU.",
+      "model_answer": "Clock speed is the number of cycles per second; a higher clock speed means more fetch-decode-execute cycles per second, so more instructions are processed.",
+      "working": "More cycles/second -> more instructions/second.",
+      "mark_scheme": [
+        {"description": "Clock speed is cycles per second", "marks": 1},
+        {"description": "Higher speed processes more instructions per second", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "The clock speed is measured in hertz and is how many cycles happen each second, so a higher clock speed lets the CPU carry out more instructions per second.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-ram-rom",
+      "subject": "cs",
+      "spec_code": "CS-MEM-01",
+      "topic": "Memory and storage",
+      "subtopic": "RAM and ROM",
+      "difficulty": "easy",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Give two differences between RAM and ROM.",
+      "model_answer": "RAM is volatile and loses its contents when powered off, while ROM is non-volatile and keeps its contents; RAM can be read and written, while ROM is normally read-only.",
+      "working": "Volatility and writability are the two contrasts.",
+      "mark_scheme": [
+        {"description": "RAM is volatile", "marks": 1},
+        {"description": "ROM is non-volatile", "marks": 1},
+        {"description": "RAM can be written to", "marks": 1},
+        {"description": "ROM is read-only", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "RAM is volatile so it loses its data when the power goes off, but ROM is non-volatile and keeps its data. RAM can also be changed by the computer while it runs.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-virtual-memory",
+      "subject": "cs",
+      "spec_code": "CS-MEM-02",
+      "topic": "Memory and storage",
+      "subtopic": "Virtual memory",
+      "difficulty": "hard",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Explain what virtual memory is and when it is used.",
+      "model_answer": "Virtual memory is an area of secondary storage used as if it were RAM when RAM is full; data not currently needed is moved out to disk to free RAM.",
+      "working": "Disk space used to extend RAM via paging when RAM is exhausted.",
+      "mark_scheme": [
+        {"description": "Uses secondary storage as extra RAM", "marks": 1},
+        {"description": "Used when RAM is full", "marks": 1},
+        {"description": "Data is moved between RAM and disk", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Virtual memory is a small fast type of memory inside the CPU that stores instructions the processor uses most often so it can reach them more quickly.",
+    "human_total": 0,
+    "human_per_point": [0, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-ssd-hdd",
+      "subject": "cs",
+      "spec_code": "CS-MEM-03",
+      "topic": "Memory and storage",
+      "subtopic": "Secondary storage",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Compare an SSD and an HDD, covering how they store data and one practical difference.",
+      "model_answer": "An SSD stores data on flash memory with no moving parts; an HDD stores data magnetically on spinning platters. An SSD is faster and more shock-resistant than an HDD.",
+      "working": "Flash vs magnetic platters; SSD faster/more robust.",
+      "mark_scheme": [
+        {"description": "SSD uses flash memory / no moving parts", "marks": 1},
+        {"description": "HDD stores data magnetically on platters", "marks": 1},
+        {"description": "States a valid practical difference", "marks": 1},
+        {"description": "Difference is correct (e.g. SSD faster/more durable)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "An SSD uses flash memory and has no moving parts, while an HDD stores data magnetically on spinning disks. An SSD is faster and harder to damage if dropped.",
+    "human_total": 4,
+    "human_per_point": [1, 1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-os-functions",
+      "subject": "cs",
+      "spec_code": "CS-SW-01",
+      "topic": "Systems software",
+      "subtopic": "Operating systems",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "State four functions of an operating system.",
+      "model_answer": "Memory management, process/CPU management, peripheral/device management and user interface (also file and user account management).",
+      "working": "Core OS roles.",
+      "mark_scheme": [
+        {"description": "Memory management", "marks": 1},
+        {"description": "Process/CPU management", "marks": 1},
+        {"description": "Peripheral/device management", "marks": 1},
+        {"description": "Provides a user interface", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "An operating system manages the memory and manages the programs running on the CPU.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-utility-software",
+      "subject": "cs",
+      "spec_code": "CS-SW-02",
+      "topic": "Systems software",
+      "subtopic": "Utility software",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Give one example of utility software and state what it does.",
+      "model_answer": "Disk defragmentation software, which reorganises files on a disk so they are stored contiguously, speeding up access.",
+      "working": "Any valid utility + correct purpose.",
+      "mark_scheme": [
+        {"description": "Names a valid utility (e.g. defrag, antivirus, backup)", "marks": 1},
+        {"description": "States its correct purpose", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Antivirus software, which scans the computer for malware and removes or quarantines anything harmful it finds.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-malware",
+      "subject": "cs",
+      "spec_code": "CS-SEC-01",
+      "topic": "Network security",
+      "subtopic": "Threats",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State what malware is and give one example.",
+      "model_answer": "Malware is malicious software designed to damage or gain unauthorised access to a computer; an example is a virus.",
+      "working": "Definition + a valid example.",
+      "mark_scheme": [
+        {"description": "Malicious software intended to harm/gain access", "marks": 1},
+        {"description": "Gives a valid example (virus, worm, trojan, etc.)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Malware is harmful software written to damage a computer or steal data, and one example is a trojan.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-phishing",
+      "subject": "cs",
+      "spec_code": "CS-SEC-02",
+      "topic": "Network security",
+      "subtopic": "Social engineering",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Describe what phishing is and state one way a user can protect against it.",
+      "model_answer": "Phishing is sending fake messages pretending to be from a trusted source to trick people into revealing personal data. Protection: do not click links in unexpected emails / check the sender address.",
+      "working": "Deception to harvest data + a sensible defence.",
+      "mark_scheme": [
+        {"description": "Fake/fraudulent messages pretending to be trusted", "marks": 1},
+        {"description": "Aim is to obtain personal/sensitive data", "marks": 1},
+        {"description": "Gives a valid protection method", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Phishing is when someone sends fake emails pretending to be a real company so that you give away your details.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-sql-injection",
+      "subject": "cs",
+      "spec_code": "CS-SEC-03",
+      "topic": "Network security",
+      "subtopic": "Threats",
+      "difficulty": "hard",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Explain what an SQL injection attack is and one way to defend against it.",
+      "model_answer": "An attacker enters SQL code into an input field so that it runs against the database and exposes or changes data. Defence: validate/sanitise inputs or use parameterised queries.",
+      "working": "Malicious SQL via input + input handling defence.",
+      "mark_scheme": [
+        {"description": "Malicious SQL entered via an input field", "marks": 1},
+        {"description": "Runs against the database to read/alter data", "marks": 1},
+        {"description": "Gives a valid defence (validation/parameterised queries)", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "An SQL injection is a type of computer virus that gets into the database server through an email attachment and then deletes all the records, and you stop it by installing antivirus software.",
+    "human_total": 0,
+    "human_per_point": [0, 0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-firewall",
+      "subject": "cs",
+      "spec_code": "CS-SEC-04",
+      "topic": "Network security",
+      "subtopic": "Prevention",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Explain the purpose of a firewall.",
+      "model_answer": "A firewall monitors incoming and outgoing network traffic and blocks traffic that does not meet its security rules.",
+      "working": "Traffic filtering against rules.",
+      "mark_scheme": [
+        {"description": "Monitors/filters network traffic", "marks": 1},
+        {"description": "Blocks traffic against set rules / unauthorised access", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A firewall keeps a computer safe from hackers and viruses.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-boolean-and",
+      "subject": "cs",
+      "spec_code": "CS-LOG-01",
+      "topic": "Boolean logic",
+      "subtopic": "Logic gates",
+      "difficulty": "easy",
+      "marks": 2,
+      "type": "calculation",
+      "stem": "For inputs A = 1 and B = 0, give the output of A AND B and the output of A OR B.",
+      "model_answer": "A AND B = 0; A OR B = 1.",
+      "working": "AND needs both 1 -> 0. OR needs either 1 -> 1.",
+      "mark_scheme": [
+        {"description": "A AND B = 0", "marks": 1},
+        {"description": "A OR B = 1", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A AND B = 0 and A OR B = 1.",
+    "human_total": 2,
+    "human_per_point": [1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-boolean-expr",
+      "subject": "cs",
+      "spec_code": "CS-LOG-02",
+      "topic": "Boolean logic",
+      "subtopic": "Logic expressions",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "calculation",
+      "stem": "Evaluate the expression (A AND B) OR NOT C for A = 1, B = 0, C = 1. Show each step.",
+      "model_answer": "0",
+      "working": "A AND B = 1 AND 0 = 0. NOT C = NOT 1 = 0. 0 OR 0 = 0.",
+      "mark_scheme": [
+        {"description": "A AND B evaluated to 0", "marks": 1},
+        {"description": "NOT C evaluated to 0", "marks": 1},
+        {"description": "Correct final result 0", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A AND B is 0, and NOT C is 0, so the whole thing is 0 OR 0 which I wrote down as 1.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-validation",
+      "subject": "cs",
+      "spec_code": "CS-PRG-01",
+      "topic": "Programming",
+      "subtopic": "Validation",
+      "difficulty": "medium",
+      "marks": 4,
+      "type": "structured",
+      "stem": "Name two types of validation check and describe what each one does.",
+      "model_answer": "Range check ensures a value is within set limits; length check ensures the number of characters is within an allowed range (e.g. presence/format checks also valid).",
+      "working": "Two named checks + correct description of each.",
+      "mark_scheme": [
+        {"description": "Names a valid check (e.g. range check)", "marks": 1},
+        {"description": "Correctly describes that check", "marks": 1},
+        {"description": "Names a second valid check (e.g. length check)", "marks": 1},
+        {"description": "Correctly describes the second check", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A range check makes sure a number is between two limits. A length check is another type of validation you can use.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "gold-cs-data-type-mcq",
+      "subject": "cs",
+      "spec_code": "CS-PRG-02",
+      "topic": "Programming",
+      "subtopic": "Data types",
+      "difficulty": "easy",
+      "marks": 1,
+      "type": "multiple_choice",
+      "stem": "Which data type is most suitable for storing whether a light is on or off? A) Integer B) String C) Boolean D) Real",
+      "model_answer": "C) Boolean",
+      "working": "On/off is a two-state value, best stored as a Boolean.",
+      "mark_scheme": [
+        {"description": "Selects C) Boolean", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "C",
+    "human_total": 1,
+    "human_per_point": [1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-loops",
+      "subject": "cs",
+      "spec_code": "CS-PRG-03",
+      "topic": "Programming",
+      "subtopic": "Iteration",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "structured",
+      "stem": "Explain the difference between a count-controlled (FOR) loop and a condition-controlled (WHILE) loop.",
+      "model_answer": "A FOR loop repeats a set number of times known in advance; a WHILE loop repeats while a condition is true, so the number of iterations may not be known in advance.",
+      "working": "Fixed count vs condition-driven repetition.",
+      "mark_scheme": [
+        {"description": "FOR loop repeats a known/fixed number of times", "marks": 1},
+        {"description": "WHILE loop repeats while a condition is true", "marks": 1},
+        {"description": "WHILE iteration count may be unknown in advance", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "A FOR loop runs a fixed number of times that you decide in advance, while a WHILE loop keeps running as long as a condition stays true, so you might not know beforehand how many times it loops.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1]
+  },
+  {
+    "question": {
+      "id": "gold-cs-subroutine-benefit",
+      "subject": "cs",
+      "spec_code": "CS-PRG-04",
+      "topic": "Programming",
+      "subtopic": "Subroutines",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "Give one benefit of using subroutines in a program and explain why.",
+      "model_answer": "Code is easier to maintain because a piece of logic is written once and reused, so a change only needs to be made in one place.",
+      "working": "Reuse + single point of change.",
+      "mark_scheme": [
+        {"description": "States a valid benefit (reuse / readability / maintainability)", "marks": 1},
+        {"description": "Explains why that benefit follows", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "They make the program shorter.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
   }
 ]
