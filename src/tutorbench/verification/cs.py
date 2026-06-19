@@ -37,18 +37,18 @@ def _reanswer_agrees(q: Question, *, client, model: str, n: int) -> float:
     The re-answer is generated fresh from the stem only (never shown the stored
     ``model_answer``); agreement is the self-consistency confidence.
     """
-    if n <= 0:
-        raise ValueError("n must be positive")
-    messages = [
-        {"role": "system", "content": "Answer the question. Give the final answer only."},
-        {"role": "user", "content": q.stem},
-    ]
-    agree = 0
+    matches = 0
     for _ in range(n):
-        fresh = client.structured(model=model, messages=messages, schema=CSDraft)
-        if fresh.model_answer.strip() == q.model_answer.strip():
-            agree += 1
-    return agree / n
+        messages = [
+            {"role": "system", "content": "You are an expert OCR GCSE Computer Science student."},
+            {"role": "user", "content": f"Answer this question:\n\n{q.stem}"},
+        ]
+        answer = client.chat(model=model, messages=messages)
+        if answer.strip() == q.model_answer.strip():
+            matches += 1
+    return matches / n
+
+
 
 
 def verify_cs_question(
