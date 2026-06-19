@@ -1,15 +1,15 @@
 """/grade API tests (M3) — TestClient + injected fake client.
 
-The endpoint runs ``grading.judge.grade``, which asks the LLM for a ``CSDraft``
-whose mark_scheme marks are the raw per-point awards, then clamps each to the
-question's mark-point max. So the queued fake response is a CSDraft, and the
-endpoint returns the clamped ``list[MarkAward]``.
+The endpoint runs ``grading.judge.grade``, which asks the LLM for a
+``GradeResult`` (a per-point award + justification), then clamps each award to
+the question's mark-point max. So the queued fake response is a GradeResult, and
+the endpoint returns the clamped ``list[MarkAward]``.
 """
 import pytest
 from fastapi.testclient import TestClient
 
 from tutorbench.api.app import app, get_llm_client
-from tutorbench.generation.cs import CSDraft
+from tutorbench.grading.judge import GradeResult, PointAward
 from tutorbench.models import (
     Difficulty,
     MarkPoint,
@@ -39,25 +39,19 @@ def _question() -> Question:
     )
 
 
-def _draft(raw_awards: list[int]) -> CSDraft:
-    """Judge draft whose mark_scheme marks are the raw per-point awards."""
-    return CSDraft(
-        topic="functions",
-        subtopic="defining and calling functions",
-        marks=sum(raw_awards) or 1,
-        stem="Define a function f that returns 42.",
-        model_answer="def f(): return 42",
-        working="A function returning the literal 42.",
-        mark_scheme=[
-            MarkPoint(description=f"Point {i}", marks=m)
+def _result(raw_awards: list[int]) -> GradeResult:
+    """Judge result whose awards are the raw per-point awards to clamp."""
+    return GradeResult(
+        awards=[
+            PointAward(awarded_marks=m, justification=f"award {i}")
             for i, m in enumerate(raw_awards)
-        ],
+        ]
     )
 
 
 @pytest.fixture
 def client(fake_llm):
-    fake = fake_llm([_draft([1, 5])])  # second raw award clamps 5 -> point max 1
+    fake = fake_llm([_result([1, 5])])  # second raw award clamps 5 -> point max 1
     app.dependency_overrides[get_llm_client] = lambda: fake
     yield TestClient(app)
     app.dependency_overrides.clear()
