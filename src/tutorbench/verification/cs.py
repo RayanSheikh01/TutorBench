@@ -43,8 +43,8 @@ def _reanswer_agrees(q: Question, *, client, model: str, n: int) -> float:
             {"role": "system", "content": "You are an expert OCR GCSE Computer Science student."},
             {"role": "user", "content": f"Answer this question:\n\n{q.stem}"},
         ]
-        answer = client.chat(model=model, messages=messages)
-        if answer.strip() == q.model_answer.strip():
+        answer = client.structured(model=model, messages=messages, schema=CSDraft)
+        if answer.model_answer.strip() == q.model_answer.strip():
             matches += 1
     return matches / n
 
