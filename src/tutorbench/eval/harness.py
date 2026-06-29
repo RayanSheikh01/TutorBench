@@ -111,6 +111,19 @@ def run_eval(gold_source, *, grader) -> dict:
     }
 
 
+def telemetry_block(counting_client, n_items: int) -> dict:
+    """Derive a JSON-serialisable telemetry summary from a
+    :class:`~tutorbench.llm.telemetry.CountingClient` used during a run."""
+    s = counting_client.stats
+    return {
+        "n_calls": s["n_calls"],
+        "calls_per_question": (s["n_calls"] / n_items) if n_items else 0.0,
+        "retries": s["retries"],
+        "p50_latency": s["p50"],
+        "p95_latency": s["p95"],
+    }
+
+
 def format_report(report) -> str:
     """Render a :func:`run_eval` report as a human-readable block."""
     def fmt(m: dict) -> str:
@@ -129,6 +142,20 @@ def format_report(report) -> str:
     ]
     for qtype, m in report["by_type"].items():
         lines.append(f"  {qtype:<16} {fmt(m)}")
+
+    tel = report.get("telemetry")
+    if tel:
+        def lat(v) -> str:
+            return "n/a" if v is None else f"{v * 1000:.1f}ms"
+
+        lines += [
+            "Telemetry",
+            f"  LLM calls: {tel['n_calls']}  "
+            f"calls/question: {tel['calls_per_question']:.2f}  "
+            f"retries: {tel['retries']}",
+            f"  latency p50: {lat(tel['p50_latency'])}  "
+            f"p95: {lat(tel['p95_latency'])}",
+        ]
     return "\n".join(lines)
 
 
@@ -159,11 +186,13 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    from tutorbench.llm.telemetry import CountingClient
+
     settings = get_settings()
-    grader = make_grader(
-        client=OllamaClient(), model=settings.ollama_grade_model
-    )
+    client = CountingClient(OllamaClient())
+    grader = make_grader(client=client, model=settings.ollama_grade_model)
     report = run_eval(args.gold_path, grader=grader)
+    report["telemetry"] = telemetry_block(client, report["n_items"])
 
     print(format_report(report))
     if args.json_out:

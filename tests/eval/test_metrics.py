@@ -11,6 +11,7 @@ from tutorbench.eval.harness import (
     mae,
     qwk,
     run_eval,
+    telemetry_block,
 )
 from tutorbench.models import Difficulty, MarkAward, QType, Submission
 
@@ -160,6 +161,58 @@ def test_qwk_undefined_returns_none_not_nan(tmp_path):
 
     assert report["total"]["qwk"] is None
     assert report["per_point"]["qwk"] is None
+
+
+def test_telemetry_block_derives_calls_per_question():
+    from tutorbench.llm.telemetry import CountingClient
+
+    class _Inner:
+        def structured(self, **kw):
+            return {"ok": True}
+
+    cc = CountingClient(_Inner())
+    for _ in range(6):
+        cc.structured()
+
+    block = telemetry_block(cc, n_items=3)
+    assert block["n_calls"] == 6
+    assert block["calls_per_question"] == 2.0
+    assert block["retries"] == 0
+    assert "p50_latency" in block and "p95_latency" in block
+
+
+def test_telemetry_block_handles_zero_items():
+    from tutorbench.llm.telemetry import CountingClient
+
+    class _Inner:
+        def structured(self, **kw):
+            return {}
+
+    block = telemetry_block(CountingClient(_Inner()), n_items=0)
+    assert block["calls_per_question"] == 0.0
+
+
+def test_format_report_renders_telemetry_when_present(tmp_path):
+    rows = [_item("q1", QType.short_answer, [1, 1], [1, 1])]
+    gold_path = _gold_file(tmp_path, rows)
+    report = run_eval(gold_path, grader=_fake_grader({"q1": [1, 1]}))
+    report["telemetry"] = {
+        "n_calls": 4,
+        "calls_per_question": 4.0,
+        "retries": 1,
+        "p50_latency": 0.12,
+        "p95_latency": 0.34,
+    }
+
+    text = format_report(report)
+
+    assert "Telemetry" in text
+    assert "calls/question" in text
+    assert "p95" in text
+    # round-trips through JSON unchanged (telemetry stays serialisable)
+    import json as _json
+
+    assert _json.loads(_json.dumps(report)) == report
 
 
 def test_format_report_renders_sections(tmp_path):

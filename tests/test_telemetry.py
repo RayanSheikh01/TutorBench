@@ -45,8 +45,14 @@ def test_counting_client(monkeypatch):
 
     assert stats["n_calls"] == 5
     assert stats["n_errors"] == 1
+    assert stats["retries"] == 1
     assert len(stats["durations"]) == 5
     assert stats["total_duration"] == pytest.approx(sum(stats["durations"]))
+    # durations per call = end - start of consecutive perf_counter reads:
+    # (0.2-0.1, 0.4-0.3, 0.5-0.5, 0.5-0.5, 0.5-0.5) -> [0.1, 0.1, 0, 0, 0]
+    # p50 over sorted [0,0,0,0.1,0.1] -> 0 ; p95 -> 0.1*? interp near top
+    assert stats["p50"] == pytest.approx(0.0)
+    assert stats["p95"] == pytest.approx(0.1, abs=0.02)
 
 def test_counting_client_retries(monkeypatch):
     from tutorbench.llm.telemetry import CountingClient
@@ -105,3 +111,6 @@ def test_counting_client_no_calls():
     stats = counting_client.stats
 
     assert stats["n_calls"] == 0
+    assert stats["retries"] == 0
+    assert stats["p50"] is None
+    assert stats["p95"] is None
