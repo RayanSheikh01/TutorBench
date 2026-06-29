@@ -1,0 +1,74 @@
+[
+  {
+    "question": {
+      "id": "adv-cs-bin2dec-01",
+      "subject": "cs",
+      "spec_code": "CS-NUM-01",
+      "topic": "Data representation",
+      "subtopic": "Number bases",
+      "difficulty": "easy",
+      "marks": 4,
+      "type": "calculation",
+      "stem": "Convert the 8-bit binary number 01101010 to denary. Show your working.",
+      "model_answer": "106",
+      "working": "Place values 128 64 32 16 8 4 2 1. Set bits: 64 + 32 + 8 + 2 = 106.",
+      "mark_scheme": [
+        {"description": "States the place values for an 8-bit number", "marks": 1},
+        {"description": "Identifies the set bits (64, 32, 8, 2)", "marks": 1},
+        {"description": "Adds the set place values", "marks": 1},
+        {"description": "Correct final answer 106", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "The place values for an 8-bit number are 128, 64, 32, 16, 8, 4, 2, 1. Reading the bits from the right, the set bits are at 2, 8, 32 and 64, so adding them gives 64+32+8+2=107, which is the denary value.",
+    "human_total": 3,
+    "human_per_point": [1, 1, 1, 0]
+  },
+  {
+    "question": {
+      "id": "adv-cs-bigo-linear-01",
+      "subject": "cs",
+      "spec_code": "CS-ALG-02",
+      "topic": "Algorithms",
+      "subtopic": "Time complexity",
+      "difficulty": "medium",
+      "marks": 2,
+      "type": "short_answer",
+      "stem": "State the worst-case time complexity of a linear search over n items and justify your answer.",
+      "model_answer": "O(n) because in the worst case every one of the n items is checked.",
+      "working": "Worst case is the target absent or last; the loop inspects all n elements, so cost grows linearly with n.",
+      "mark_scheme": [
+        {"description": "States O(n)", "marks": 1},
+        {"description": "Justifies with worst-case scan of every item", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "Linear search runs in O(log n) time, because each comparison effectively halves the remaining items the algorithm still needs to check, similar to how binary search narrows down a sorted list.",
+    "human_total": 0,
+    "human_per_point": [0, 0]
+  },
+  {
+    "question": {
+      "id": "adv-cs-twos-complement-01",
+      "subject": "cs",
+      "spec_code": "CS-NUM-05",
+      "topic": "Data representation",
+      "subtopic": "Two's complement",
+      "difficulty": "medium",
+      "marks": 3,
+      "type": "calculation",
+      "stem": "Represent -5 as an 8-bit two's complement binary number. Show your working.",
+      "model_answer": "11111011",
+      "working": "5 = 00000101. Invert bits: 11111010. Add 1: 11111011.",
+      "mark_scheme": [
+        {"description": "Writes 5 in 8-bit binary (00000101)", "marks": 1},
+        {"description": "Inverts the bits", "marks": 1},
+        {"description": "Adds 1 to the inverted bits for the correct final answer", "marks": 1}
+      ],
+      "verified": true
+    },
+    "student_answer": "5 in 8-bit binary is 00000101. To get -5 we invert every bit, giving 11111010, and that inverted value is already the two's complement representation of -5, no further step is needed.",
+    "human_total": 2,
+    "human_per_point": [1, 1, 0]
+  }
+]

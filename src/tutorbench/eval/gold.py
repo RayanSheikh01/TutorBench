@@ -13,7 +13,7 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field, model_validator
 
-from ..models import Question
+from ..models import Difficulty, MarkPoint, QType, Question, Subject
 
 
 class GoldItem(BaseModel):

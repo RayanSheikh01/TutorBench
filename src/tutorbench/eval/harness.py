@@ -64,14 +64,16 @@ def make_grader(*, client, model):
     return _grader
 
 
-def run_eval(gold_path, *, grader) -> dict:
+def run_eval(gold_source, *, grader) -> dict:
     """Grade every gold item and report total + per-point agreement.
 
-    ``grader`` maps ``(question, student_answer) -> Submission``. Production
-    passes :func:`make_grader` (the real judge with an injected client/model);
-    tests pass a fake grader so the run is deterministic and offline.
+    ``gold_source`` is either a path to a gold JSON file or an already-loaded
+    ``list[GoldItem]``. ``grader`` maps ``(question, student_answer) ->
+    Submission``. Production passes :func:`make_grader` (the real judge with
+    an injected client/model); tests pass a fake grader so the run is
+    deterministic and offline.
     """
-    items = load_gold(gold_path)
+    items = gold_source if isinstance(gold_source, list) else load_gold(gold_source)
 
     total_human: list[int] = []
     total_pred: list[int] = []
@@ -118,8 +120,11 @@ def format_report(report) -> str:
 
     lines = [
         f"Gold items: {report['n_items']}  mark points: {report['n_points']}",
+        "Total Agreement",
         f"Total:     {fmt(report['total'])}",
+        "Per-Point Agreement",
         f"Per-point: {fmt(report['per_point'])}",
+        "By Question Type",
         "By question type:",
     ]
     for qtype, m in report["by_type"].items():
@@ -166,6 +171,13 @@ def main() -> None:
             json.dump(report, f, indent=2)
         print(f"\nJSON report written to {args.json_out}")
 
+
+def count_over_credit(report_items) -> int:
+    """Count how many items have a total mark greater than the question's
+    maximum marks."""
+    return sum(
+        1 for item in report_items if item["human_total"] < item["grader_total"]
+    )
 
 if __name__ == "__main__":
     main()
